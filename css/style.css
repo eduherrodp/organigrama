@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.organigrama_content{
+    width: 100vw;
+    height: 100vh;
+    background: red;
+}
+.organigrama {
+    width: 80%;
+    height: 90%x;
+    margin: 0 auto;
+    background: url(../img/organigrama-32.png) no-repeat;
+    background-size: 100% 100%;
+}
