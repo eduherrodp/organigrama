@@ -48,13 +48,22 @@ require_once 'php/Persona.php';
 $persona = new Persona($persona['id'], $persona['nombre'], $persona['cargo'], $persona['correo'], $persona['telefono'], $persona['cv'], $persona['foto']);
 
 // Getters
+
+echo "Datos de la persona<br>----getId";
 echo $persona->getId();
+echo "<br>----getNombre";
 echo $persona->getNombre();
+echo "<br>----getCargo";
 echo $persona->getCargo();
+echo "<br>----getCorreo";
 echo $persona->getCorreo();
+echo "<br>----getTelefono";
 echo $persona->getTelefono();
+echo "<br>----getCv";
 echo $persona->getCv();
+echo "<br>----getFoto";
 echo $persona->getFoto();
+echo "<br><br>";
 
 /**
  * Cierre de la conexión a la base de datos y liberación de recursos
