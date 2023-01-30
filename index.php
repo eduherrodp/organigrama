@@ -30,7 +30,7 @@ $dbQuery = new DBQuery($conn);
 
 // Implementación de la clase Persona.php
 require_once 'php/Persona.php';
-for ( $i=0; $i < 38; $i++ ) {
+for ( $i=1; $i < 2; $i++ ) {
     // Instancia de la clase Persona
     $personaObj = $dbQuery->getPersona($i);
     echo $personaObj->getId(), " | ", $personaObj->getNombre(), " | ", $personaObj->getCargo(), " | ", $personaObj->getCorreo(), " | ", $personaObj->getTelefono(), " | ", $personaObj->getCv(), " | ", $personaObj->getFoto(), "<br><br>";
