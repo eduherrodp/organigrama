@@ -15,8 +15,6 @@ require_once 'php/DBConnection.php';
 $db = DBConnection::getInstance();
 // Obtención de la conexión a la base de datos
 $conn = $db->getConnection();
-// Verificación de la conexión a la base de datos
-$conn ? print "Conexión exitosa" : print "Conexión fallida";
 
 /**
  * Llenado de objetos de la clase Persona
@@ -28,14 +26,13 @@ require_once 'php/DBQuery.php';
 $dbQuery = new DBQuery($conn);
 // Obtención de los datos de la persona
 $persona = $dbQuery->getPersonas(1);
-// Verificación de la obtención de los datos de la persona
-$persona ? print_r($persona) : print "No se encontró la persona";
 
 /**
  * Cierre de la conexión a la base de datos y liberación de recursos
  */
 
 $db->closeConnection();
+$dbQuery = null;
 $conn = null;
 
 /**
@@ -45,29 +42,30 @@ $conn = null;
 // Implementación de la clase Persona.php
 require_once 'php/Persona.php';
 // Instancia de la clase Persona
-$persona = new Persona($persona['id'], $persona['nombre'], $persona['cargo'], $persona['correo'], $persona['telefono'], $persona['cv'], $persona['foto']);
+$personaObj = new Persona($persona['id'], $persona['nombre'], $persona['cargo'], $persona['correo'], $persona['telefono'], $persona['cv'], $persona['foto']);
+
+$db->closeConnection();
+$persona = null;
+
 
 // Getters
 
-echo "Datos de la persona<br>----getId";
-echo $persona->getId();
-echo "<br>----getNombre";
-echo $persona->getNombre();
-echo "<br>----getCargo";
-echo $persona->getCargo();
-echo "<br>----getCorreo";
-echo $persona->getCorreo();
-echo "<br>----getTelefono";
-echo $persona->getTelefono();
-echo "<br>----getCv";
-echo $persona->getCv();
-echo "<br>----getFoto";
-echo $persona->getFoto();
-echo "<br><br>";
+echo "Datos de la persona<br>----getId<br>";
+echo $personaObj->getId();
+echo "<br>----getNombre<br>";
+echo $personaObj->getNombre();
+echo "<br>----getCargo<br>";
+echo $personaObj->getCargo();
+echo "<br>----getCorreo<br>";
+echo $personaObj->getCorreo();
+echo "<br>----getTelefono<br>";
+echo $personaObj->getTelefono();
+echo "<br>----getCv<br>";
+echo $personaObj->getCv();
+echo "<br>----getFoto<br>";
+echo $personaObj->getFoto();
+echo "<br><br><br>";
 
 /**
  * Cierre de la conexión a la base de datos y liberación de recursos
  */
-
-$db->closeConnection();
-$persona = null;
