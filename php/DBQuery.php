@@ -7,7 +7,7 @@ class DBQuery {
     }
 
     public function getPersonas($id) {
-        $stmt = $this->pdo->prepare("SELECT personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto
+        $stmt = $this->pdo->prepare("SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto
                                       FROM personas
                                       JOIN cargos ON personas.id_cargo = cargos.id
                                       JOIN correos ON personas.id_correo = correos.id
