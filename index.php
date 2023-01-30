@@ -3,7 +3,6 @@
 namespace php;
 
 use DBQuery;
-use Persona;
 
 require_once 'php/DBConnection.php';
 
@@ -24,16 +23,6 @@ $conn = $db->getConnection();
 require_once 'php/DBQuery.php';
 // Instancia de la clase DBQuery
 $dbQuery = new DBQuery($conn);
-// Obtención de los datos de la persona
-$persona = $dbQuery->getPersonas(1);
-
-/**
- * Cierre de la conexión a la base de datos y liberación de recursos
- */
-
-$db->closeConnection();
-$dbQuery = null;
-$conn = null;
 
 /**
  * Llenado de objetos de la clase Persona
@@ -42,14 +31,9 @@ $conn = null;
 // Implementación de la clase Persona.php
 require_once 'php/Persona.php';
 // Instancia de la clase Persona
-$personaObj = new Persona($persona['id'], $persona['nombre'], $persona['cargo'], $persona['correo'], $persona['telefono'], $persona['cv'], $persona['foto']);
-
-$db->closeConnection();
-$persona = null;
-
+$personaObj = $dbQuery->getPersona(1);
 
 // Getters
-
 echo "Datos de la persona<br>----getId<br><br>";
 echo $personaObj->getId();
 echo "<br><br>----getNombre<br>";
@@ -69,4 +53,8 @@ echo "<br><br><br>";
 /**
  * Cierre de la conexión a la base de datos y liberación de recursos
  */
+$db->closeConnection();
+$dbQuery = null;
+$conn = null;
+
 

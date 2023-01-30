@@ -8,7 +8,7 @@ class Persona {
     private $cv;
     private $foto;
 
-    // Se implementará después de realizar la consulta a la base de datos
+    // Constructor para la asignación de valores a los atributos
     public function __construct($id, $nombre, $cargo, $correo, $telefono, $cv, $foto) {
         $this->id = $id;
         $this->nombre = $nombre;
