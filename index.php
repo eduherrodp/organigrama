@@ -30,31 +30,22 @@ $dbQuery = new DBQuery($conn);
 
 // Implementación de la clase Persona.php
 require_once 'php/Persona.php';
-// Instancia de la clase Persona
-$personaObj = $dbQuery->getPersona(1);
+for ( $i=0; $i < 38; $i++ ) {
+    // Instancia de la clase Persona
+    $personaObj = $dbQuery->getPersona($i);
+    echo $personaObj->getId(), " | ", $personaObj->getNombre(), " | ", $personaObj->getCargo(), " | ", $personaObj->getCorreo(), " | ", $personaObj->getTelefono(), " | ", $personaObj->getCv(), " | ", $personaObj->getFoto(), "<br><br>";
 
-// Getters
-echo "Datos de la persona<br>----getId<br><br>";
-echo $personaObj->getId();
-echo "<br><br>----getNombre<br>";
-echo $personaObj->getNombre();
-echo "<br><br>----getCargo<br>";
-echo $personaObj->getCargo();
-echo "<br><br>----getCorreo<br>";
-echo $personaObj->getCorreo();
-echo "<br><br>----getTelefono<br>";
-echo $personaObj->getTelefono();
-echo "<br><br>----getCv<br>";
-echo $personaObj->getCv();
-echo "<br><br>----getFoto<br>";
-echo $personaObj->getFoto();
-echo "<br><br><br>";
+    /**
+     * Liberación de recursos
+     */
+    $personaObj = null;
+    $dbQuery = null;
+}
 
 /**
  * Cierre de la conexión a la base de datos y liberación de recursos
  */
 $db->closeConnection();
-$dbQuery = null;
 $conn = null;
 
 
