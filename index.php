@@ -50,22 +50,23 @@ $persona = null;
 
 // Getters
 
-echo "Datos de la persona<br>----getId<br>";
+echo "Datos de la persona<br>----getId<br><br>";
 echo $personaObj->getId();
-echo "<br>----getNombre<br>";
+echo "<br><br>----getNombre<br>";
 echo $personaObj->getNombre();
-echo "<br>----getCargo<br>";
+echo "<br><br>----getCargo<br>";
 echo $personaObj->getCargo();
-echo "<br>----getCorreo<br>";
+echo "<br><br>----getCorreo<br>";
 echo $personaObj->getCorreo();
-echo "<br>----getTelefono<br>";
+echo "<br><br>----getTelefono<br>";
 echo $personaObj->getTelefono();
-echo "<br>----getCv<br>";
+echo "<br><br>----getCv<br>";
 echo $personaObj->getCv();
-echo "<br>----getFoto<br>";
+echo "<br><br>----getFoto<br>";
 echo $personaObj->getFoto();
 echo "<br><br><br>";
 
 /**
  * Cierre de la conexión a la base de datos y liberación de recursos
  */
+
