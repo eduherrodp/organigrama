@@ -14,7 +14,6 @@ require_once 'php/DBConnection.php';
 $db = DBConnection::getInstance();
 // Obtención de la conexión a la base de datos
 $conn = $db->getConnection();
-$dbQuery = new DBQuery($conn);
 
 // Cerrar conexión
 $db->closeConnection();
