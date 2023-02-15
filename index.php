@@ -14,21 +14,7 @@ require_once 'php/DBConnection.php';
 $db = DBConnection::getInstance();
 // Obtención de la conexión a la base de datos
 $conn = $db->getConnection();
-
-/**
- * Llenado de objetos de la clase Persona
- */
-
-// Implementación de la clase DBQuery.php
-require_once 'php/DBQuery.php';
-// Instancia de la clase DBQuery
 $dbQuery = new DBQuery($conn);
 
-
-/**
- * Cierre de la conexión a la base de datos y liberación de recursos
- */
+// Cerrar conexión
 $db->closeConnection();
-$conn = null;
-
-
