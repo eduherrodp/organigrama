@@ -9,6 +9,7 @@ require_once 'php/DBConnection.php';
  */
 
 echo "Conexión a la base de datos";
+$db = DBConnection::getInstance();
 
 
 
