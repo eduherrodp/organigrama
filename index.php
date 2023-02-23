@@ -9,22 +9,29 @@ require_once 'php/DBConnection.php';
  */
 
 $db = DBConnection::getInstance();
-$conn = $db->getConnection();
+$sql = "SELECT * FROM personas";
+$stmt = $db->query($sql);
+$rows = $stmt->fetchAll();
 
-// Consulta a la base de datos
-$sql = "SELECT * FROM persona";
-
-// Utilizacion del método query de la clase DBConnection
-
-$data = $db->query($sql);
-
-// Iteración de los resultados de la consulta
-foreach ($data as $row) {
-    echo $row['nombre'];
+// Show the result
+echo "<table border='1'>";
+echo "<tr><th>ID</th><th>Nombre</th><th>Cargo</th><th>Correo</th><th>Teléfono</th><th>CV</th><th>Foto</th></tr>";
+foreach ($rows as $row) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>" . $row['nombre'] . "</td>";
+    echo "<td>" . $row['cargo'] . "</td>";
+    echo "<td>" . $row['correo'] . "</td>";
+    echo "<td>" . $row['telefono'] . "</td>";
+    echo "<td>" . $row['cv'] . "</td>";
+    echo "<td>" . $row['foto'] . "</td>";
+    echo "</tr>";
 }
+echo "</table>";
 
-// Cierre de la conexión a la base de datos
+// Close the connection
 $db->closeConnection();
+
 
 
 
