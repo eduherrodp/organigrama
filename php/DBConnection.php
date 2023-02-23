@@ -33,7 +33,7 @@ class DBConnection {
             PDO::ATTR_EMULATE_PREPARES => false, // Desactiva la emulación de consultas para evitar inyección de código
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci" // Establece el juego de caracteres para la conexión
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'" // Establece el juego de caracteres para la conexión
         ];
         try {
             $this->conn = new PDO($dsn, $this->user, $this->pass, $options);
