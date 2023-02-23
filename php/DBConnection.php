@@ -40,7 +40,6 @@ class DBConnection {
         } catch (PDOException $e) {
             echo "Error de conexión a la base de datos: ", $e->getMessage();
             http_response_code(400);
-            die("Error de conexión a la base de datos. Por favor, inténtelo de nuevo más tarde");
         }
     }
     // Singleton
