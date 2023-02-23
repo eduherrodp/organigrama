@@ -10,11 +10,11 @@ require_once 'php/DBConnection.php';
  * Conexión a la base de datos
  */
 
-// Instanciamos la clase DBConnection
+// Instancia de la clase DBConnection
 $db = DBConnection::getInstance();
 
 // Preparamos la consulta
-$query = "show tables from organigrama";
+$query = "SELECT * FROM personas";
 $statement = $db->getConnection()->prepare($query);
 
 // Ejecutamos la consulta
