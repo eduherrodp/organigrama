@@ -63,22 +63,12 @@ class DBConnection {
     }
 
     // Ejecutar una consulta en la base de datos y devolver un objeto PDOStatement
-    public function query($sql, $params = []): PDOStatement {
+    public function getRows($sql, $params = []): array {
         $stmt = $this->getConnection()->prepare($sql);
         $stmt->execute($params);
-        return $stmt;
-    }
-    // Obtener una fila de la base de datos
-    public function getRow($sql): ?array {
-        $stmt = $this->query($sql);
-        return $stmt->fetch();
-    }
-
-    // Obtener varias filas de la base datos
-    public function getRows($sql): array {
-        $stmt = $this->query($sql);
         return $stmt->fetchAll();
     }
+
 
     // Impide la clonación, serialización y deserialización de la instancia respectivamente
     private function __clone(){}
