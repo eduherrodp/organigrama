@@ -28,9 +28,8 @@ for($i = 1; $i<=5; $i++) {
 
     // Liberación de memoria
     unset($result);
-    unset($persona);
 }
-
+unset($persona);
 // Close the connection
 $db->closeConnection();
 
