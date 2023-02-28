@@ -21,9 +21,8 @@ $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telef
 for($i = 1; $i<=38; $i++) {
     // Complete the query with the id
     $result = $db->getRows($sql, [$i]);
-    $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
-    echo $persona->getId() . " " . $persona->getNombre() . "<br>";
-    unset($result);
+
+
     //$result = $db->getRows($sql, [$i]);
     // Implementación de la clase Persona
     //$persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
@@ -31,9 +30,10 @@ for($i = 1; $i<=38; $i++) {
     //echo $persona->getId() . " " . $persona->getNombre() . "\n\n";
 
     // Liberación de memoria
-    unset($result);
+
 }
-unset($persona);
+$persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
+echo $persona->getId() . " " . $persona->getNombre() . "<br>";
 // Close the connection
 $db->closeConnection();
 
