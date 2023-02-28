@@ -4,10 +4,14 @@ namespace php;
 
 use PDO;
 use PDOException;
-use PDOStatement;
-
 class DBConnection {
+    /**
+     * @var DBConnection|null
+     */
     private static ?DBConnection $instance = null;
+    /**
+     * @var PDO|null
+     */
     private ?PDO $conn = null;
     private string $host;
     private string $user;
@@ -39,10 +43,13 @@ class DBConnection {
             $this->conn = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
             echo "Error de conexión a la base de datos: ", $e->getMessage();
-            http_response_code(400);
         }
     }
     // Singleton
+
+    /**
+     * @return DBConnection
+     */
     public static function getInstance(): DBConnection {
         if (!isset(self::$instance)) {
             self::$instance = new DBConnection();
@@ -53,6 +60,9 @@ class DBConnection {
         $this->conn = null;
     }
 
+    /**
+     * @return PDO
+     */
     public function getConnection(): PDO
     {
         // Verificar si la conexión a la base de datos está activa antes de devolverla
@@ -63,7 +73,13 @@ class DBConnection {
     }
 
     // Ejecutar una consulta en la base de datos y devolver un objeto PDOStatement
-    public function getRows($sql, $params = []): array {
+
+    /**
+     * @param $sql
+     * @param array $params
+     * @return array
+     */
+    public function getRows($sql, array $params = []): array {
         $stmt = $this->getConnection()->prepare($sql);
         $stmt->execute($params);
         return $stmt->fetchAll();

@@ -7,6 +7,7 @@
     <list default="true" id="d72265e9-3841-4478-b75d-24decaa68f63" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/DBConnection.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +49,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\dev\organigrama\templates" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="config.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/php/config.php">
       <method v="2" />
@@ -74,7 +80,8 @@
       <workItem from="1677044295372" duration="13657000" />
       <workItem from="1677176733007" duration="83000" />
       <workItem from="1677176846053" duration="5435000" />
-      <workItem from="1677217016077" duration="2323000" />
+      <workItem from="1677217016077" duration="7471000" />
+      <workItem from="1677601913828" duration="1444000" />
     </task>
     <servers />
   </component>
