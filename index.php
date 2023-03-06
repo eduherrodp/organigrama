@@ -17,7 +17,7 @@ $db = DBConnection::getInstance();
 // Consultamos únicamente un registro por iteración para evitar el uso de memoria innecesario
 
 $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto FROM personas JOIN cargos ON personas.id_cargo = cargos.id JOIN correos ON personas.id_correo = correos.id JOIN telefonos ON personas.id_telefono = telefonos.id JOIN cv ON personas.id_cv = cv.id JOIN fotos ON personas.id_foto = fotos.id WHERE personas.id = ?;";
-
+/*
 for($i = 1; $i<=38; $i++) {
     // Complete the query with the id
     $result = $db->getRows($sql, [$i]);
@@ -45,7 +45,7 @@ for($i = 1; $i<=38; $i++) {
     } else {
         echo "No se encontró el registro con id " . $i . "\n";
     }
-}
+}*/
 // Close the connection
 $db->closeConnection();
 
