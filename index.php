@@ -1,9 +1,11 @@
 <?php
 //Implementación de la clase DBConnection.php
+
 namespace php;
 
 use Persona;
 
+include 'php/Persona.php';
 require_once 'php/DBConnection.php';
 
 /**
@@ -53,7 +55,7 @@ echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\
     }
 }*/
 // Close the connection
-// $db->closeConnection();
+//  $db->closeConnection();
 
 
 
