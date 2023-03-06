@@ -23,14 +23,15 @@ for($i = 1; $i<=38; $i++) {
     $result = $db->getRows($sql, [$i]);
 
     if (!empty($result)) {
-        // Implementación de la clase Persona
+        /*// Implementación de la clase Persona
         $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
 
         // Datos persona
         // echo $persona->getId() . " " . $persona->getNombre() . "\n\n";
 
         // Liberación de memoria
-        unset($persona);
+        unset($persona);*/
+        var_dump($result);
     } else {
         echo "No se encontró el registro con id " . $i . "\n";
     }
