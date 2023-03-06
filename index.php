@@ -53,7 +53,7 @@ echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\
     }
 }*/
 // Close the connection
-$db->closeConnection();
+// $db->closeConnection();
 
 
 
