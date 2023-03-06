@@ -23,15 +23,24 @@ for($i = 1; $i<=38; $i++) {
     $result = $db->getRows($sql, [$i]);
 
     if (!empty($result)) {
-        /*// Implementación de la clase Persona
-        $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
+        // Implementación de la clase Persona
+        // Pasamos a variables locales los valores de la consulta
 
-        // Datos persona
-        // echo $persona->getId() . " " . $persona->getNombre() . "\n\n";
+        $id = $result[0]['id'];
+        $nombre = $result[0]['nombre'];
+        $cargo = $result[0]['cargo'];
+        $correo = $result[0]['correo'];
+        $telefono = $result[0]['telefono'];
+        $cv = $result[0]['cv'];
+        $foto = $result[0]['foto'];
 
-        // Liberación de memoria
-        unset($persona);*/
-        var_dump($result);
+        // Mostramos los valores de la consulta
+
+        $persona = new Persona($id, $nombre, $cargo, $correo, $telefono, $cv, $foto);
+        echo $persona->getId() . " " . $persona->getNombre() . " " . $persona->getCargo() . " " . $persona->getCorreo() . " " . $persona->getTelefono() . " " . $persona->getCv() . " " . $persona->getFoto() . "\n";
+
+        //Liberación de memoria
+        unset($persona);
     } else {
         echo "No se encontró el registro con id " . $i . "\n";
     }
