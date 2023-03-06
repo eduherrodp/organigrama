@@ -20,13 +20,8 @@ $db = DBConnection::getInstance();
 
 $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto FROM personas JOIN cargos ON personas.id_cargo = cargos.id JOIN correos ON personas.id_correo = correos.id JOIN telefonos ON personas.id_telefono = telefonos.id JOIN cv ON personas.id_cv = cv.id JOIN fotos ON personas.id_foto = fotos.id WHERE personas.id = ?;";
 
-// Creamos un objeto de la clase Persona
-$persona = new Persona("1", "Juan", "Desarrollador", "prueba@mail.com", "123456789", "cv.pdf", "foto.jpg");
 
-// Mostramos los valores de la clase Persona
-echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\t" . "cargo: " . $persona->getCargo() . "\t" . "correo: " . $persona->getCorreo() . "\t" . "telefono: " . $persona->getTelefono() . "\t" . "cv: " . $persona->getCv() . "\t" . "foto: " . $persona->getFoto() . "\n";
-
-/*for($i = 1; $i<=38; $i++) {
+for($i = 1; $i<=38; $i++) {
     // Complete the query with the id
     $result = $db->getRows($sql, [$i]);
 
@@ -53,9 +48,9 @@ echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\
     } else {
         echo "No se encontró el registro con id " . $i . "\n";
     }
-}*/
+}
 // Close the connection
-//  $db->closeConnection();
+//$db->closeConnection();
 
 
 
