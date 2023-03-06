@@ -1,6 +1,6 @@
 <?php
 class Persona {
-    private string $id;
+    private int $id;
     private string $nombre;
     private string $cargo;
     private string $correo;
@@ -9,7 +9,7 @@ class Persona {
     private string $foto;
 
     // Constructor para la asignación de valores a los atributos
-    public function __construct(string $id,string $nombre,string $cargo,string $correo,string $telefono, string $cv,string $foto) {
+    public function __construct(int $id,string $nombre,string $cargo,string $correo,string $telefono, string $cv,string $foto) {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->cargo = $cargo;
