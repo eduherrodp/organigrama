@@ -23,7 +23,7 @@ for($i = 1; $i<=38; $i++) {
     $result = $db->getRows($sql, [$i]);
 
     // Implementación de la clase Persona
-    $persona = new Persona($result[$i]['id'], $result[$i]['nombre'], $result[$i]['cargo'], $result[$i]['correo'], $result[$i]['telefono'], $result[$i]['cv'], $result[$i]['foto']);
+    $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
     
     // Datos persona
     echo $persona->getId() . " " . $persona->getNombre() . "\n\n";
