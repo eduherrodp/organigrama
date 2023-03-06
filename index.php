@@ -34,10 +34,14 @@ for($i = 1; $i<=38; $i++) {
         $cv = $result[0]['cv'];
         $foto = $result[0]['foto'];
 
-        // Mostramos los valores de la consulta
-        echo "id: " . $id . "\t" . "nombre: " . $nombre . "\t" . "cargo: " . $cargo . "\t" . "correo: " . $correo . "\t" . "telefono: " . $telefono . "\t" . "cv: " . $cv . "\t" . "foto: " . $foto . "\n";
+        // Instanciamos la clase Persona
+        $persona = new Persona($id, $nombre, $cargo, $correo, $telefono, $cv, $foto);
+
+        // Mostramos los valores de la clase Persona
+        echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\t" . "cargo: " . $persona->getCargo() . "\t" . "correo: " . $persona->getCorreo() . "\t" . "telefono: " . $persona->getTelefono() . "\t" . "cv: " . $persona->getCv() . "\t" . "foto: " . $persona->getFoto() . "\n";
+
         //Liberación de memoria
-        // unset($persona);
+        unset($persona);
     } else {
         echo "No se encontró el registro con id " . $i . "\n";
     }
