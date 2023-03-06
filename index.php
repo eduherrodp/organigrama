@@ -35,12 +35,9 @@ for($i = 1; $i<=38; $i++) {
         $foto = $result[0]['foto'];
 
         // Mostramos los valores de la consulta
-
-        $persona = new Persona($id, $nombre, $cargo, $correo, $telefono, $cv, $foto);
-        echo $persona->getId() . " " . $persona->getNombre() . " " . $persona->getCargo() . " " . $persona->getCorreo() . " " . $persona->getTelefono() . " " . $persona->getCv() . " " . $persona->getFoto() . "\n";
-
+        echo "id: " . $id . "\t" . "nombre: " . $nombre . "\t" . "cargo: " . $cargo . "\t" . "correo: " . $correo . "\t" . "telefono: " . $telefono . "\t" . "cv: " . $cv . "\t" . "foto: " . $foto . "\n";
         //Liberación de memoria
-        unset($persona);
+        // unset($persona);
     } else {
         echo "No se encontró el registro con id " . $i . "\n";
     }
