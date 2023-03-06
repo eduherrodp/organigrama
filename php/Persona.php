@@ -19,7 +19,7 @@ class Persona {
         $this->foto = $foto;
     }
     // Getters
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }
