@@ -27,18 +27,7 @@ for($i = 1; $i<=38; $i++) {
 
     if (!empty($result)) {
         // Implementación de la clase Persona
-        // Pasamos a variables locales los valores de la consulta
-
-        $id = $result[0]['id'];
-        $nombre = $result[0]['nombre'];
-        $cargo = $result[0]['cargo'];
-        $correo = $result[0]['correo'];
-        $telefono = $result[0]['telefono'];
-        $cv = $result[0]['cv'];
-        $foto = $result[0]['foto'];
-
-        // Instanciamos la clase Persona
-        $persona = new Persona($id, $nombre, $cargo, $correo, $telefono, $cv, $foto);
+        $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
 
         // Mostramos los valores de la clase Persona
         echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\t" . "cargo: " . $persona->getCargo() . "\t" . "correo: " . $persona->getCorreo() . "\t" . "telefono: " . $persona->getTelefono() . "\t" . "cv: " . $persona->getCv() . "\t" . "foto: " . $persona->getFoto() . "<br>";
