@@ -41,7 +41,7 @@ for($i = 1; $i<=38; $i++) {
         $persona = new Persona($id, $nombre, $cargo, $correo, $telefono, $cv, $foto);
 
         // Mostramos los valores de la clase Persona
-        echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\t" . "cargo: " . $persona->getCargo() . "\t" . "correo: " . $persona->getCorreo() . "\t" . "telefono: " . $persona->getTelefono() . "\t" . "cv: " . $persona->getCv() . "\t" . "foto: " . $persona->getFoto() . "\n";
+        echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\t" . "cargo: " . $persona->getCargo() . "\t" . "correo: " . $persona->getCorreo() . "\t" . "telefono: " . $persona->getTelefono() . "\t" . "cv: " . $persona->getCv() . "\t" . "foto: " . $persona->getFoto() . "<br>";
 
         //Liberación de memoria
         unset($persona);
