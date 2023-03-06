@@ -5,7 +5,7 @@ namespace php;
 
 use Persona;
 
-//include 'php/Persona.php';
+include 'php/Persona.php';
 require_once 'php/DBConnection.php';
 
 /**
