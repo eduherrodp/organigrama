@@ -28,21 +28,29 @@ for($i = 1; $i<=38; $i++) {
     if (!empty($result)) {
         // Implementación de la clase Persona
         $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
-
-        // Mostramos los valores de la clase Persona
-        echo "id: " . $persona->getId() . "\t" . "nombre: " . $persona->getNombre() . "\t" . "cargo: " . $persona->getCargo() . "\t" . "correo: " . $persona->getCorreo() . "\t" . "telefono: " . $persona->getTelefono() . "\t" . "cv: " . $persona->getCv() . "\t" . "foto: " . $persona->getFoto() . "<br>";
-
-        //Liberación de memoria
+        // Llenado de la plantilla con los datos de la base de datos
+        fillTemplate($persona);
+        // Liberación de memoria
         unset($persona);
     } else {
         echo "No se encontró el registro con id " . $i . "\n";
     }
 }
-// Close the connection
-//$db->closeConnection();
 
-
-
+function fillTemplate(Persona $persona): string {
+    // Obtención de la plantilla
+    $template = file_get_contents('template/template.html');
+    // Reemplazo de los valores de la plantilla con los de la base de datos
+    $template = str_replace('(persona)', $persona->getFoto(), $template);
+    $template = str_replace('(nombre)', $persona->getNombre(), $template);
+    $template = str_replace('(cargo)', $persona->getCargo(), $template);
+    $template = str_replace('(correo)', $persona->getCorreo(), $template);
+    $template = str_replace('(telefono)', $persona->getTelefono(), $template);
+    $template = str_replace('(cv)', $persona->getCv(), $template);
+    $template = str_replace('(foto)', $persona->getFoto(), $template);
+    // Mostrar la plantilla
+    return $template;
+}
 
 
 
