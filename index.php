@@ -39,7 +39,7 @@ for($i = 1; $i<=38; $i++) {
 
 function fillTemplate(Persona $persona): string {
     // Obtención de la plantilla
-    $template = file_get_contents('template/template.html');
+    $template = file_get_contents('template/persona.html');
     // Reemplazo de los valores de la plantilla con los de la base de datos
     $template = str_replace('(persona)', $persona->getFoto(), $template);
     $template = str_replace('(nombre)', $persona->getNombre(), $template);
