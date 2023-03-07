@@ -13,13 +13,9 @@ require_once 'php/DBConnection.php';
  */
 
 $db = DBConnection::getInstance();
-
-/*Desde aquí se comenzará a iterar*/
-
 // Consultamos únicamente un registro por iteración para evitar el uso de memoria innecesario
 
 $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto FROM personas JOIN cargos ON personas.id_cargo = cargos.id JOIN correos ON personas.id_correo = correos.id JOIN telefonos ON personas.id_telefono = telefonos.id JOIN cv ON personas.id_cv = cv.id JOIN fotos ON personas.id_foto = fotos.id WHERE personas.id = ?;";
-
 
 for($i = 1; $i<=38; $i++) {
     // Complete the query with the id
@@ -47,13 +43,8 @@ function fillTemplate(Persona $persona): string {
     $template = str_replace('(correo)', $persona->getCorreo(), $template);
     $template = str_replace('(telefono)', $persona->getTelefono(), $template);
     $template = str_replace('(cv)', $persona->getCv(), $template);
+    /** @var string $template */
     $template = str_replace('(foto)', $persona->getFoto(), $template);
     // Mostrar la plantilla
     return $template;
 }
-
-
-
-
-
-
