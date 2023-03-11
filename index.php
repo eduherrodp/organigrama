@@ -24,8 +24,10 @@ $db = DBConnection::getInstance();
 
 $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto FROM personas JOIN cargos ON personas.id_cargo = cargos.id JOIN correos ON personas.id_correo = correos.id JOIN telefonos ON personas.id_telefono = telefonos.id JOIN cv ON personas.id_cv = cv.id JOIN fotos ON personas.id_foto = fotos.id WHERE personas.id = ?;";
 
+// Add head to the html
+echo file_get_contents('templates/head.html');
 
-for($i = 1; $i<=38; $i++) {
+for ($i = 1; $i<=38; $i++) {
     // Complete the query with the id
     $result = $db->getRows($sql, [$i]);
 
@@ -37,12 +39,20 @@ for($i = 1; $i<=38; $i++) {
         // Liberación de memoria
         unset($persona);
         $msj = "[OK query] " . date('d-m-Y H:i:s') . ": Found register with id " . $i . "\n";
-        error_log("$msj", 3, "error_log.txt");
     } else {
         $msj = "[ERROR query] " . date('d-m-Y H:i:s') . ": Not found register with id " . $i . "\n";
-        error_log("$msj", 3, "error_log.txt");
     }
+    error_log("$msj", 3, "error_log.txt");
 }
+
+// close the html
+echo "</html>";
+
+
+/**
+ * @param Persona $persona
+ * @return string
+ */
 
 function fillTemplate(Persona $persona): string {
     // Obtención de la plantilla
