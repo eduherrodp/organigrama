@@ -8,6 +8,11 @@ use Persona;
 include 'php/Persona.php';
 require_once 'php/DBConnection.php';
 
+// Configure php log file
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 /**
  * Conexión a la base de datos
  */
