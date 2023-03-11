@@ -32,22 +32,31 @@ for ($i = 1; $i<=38; $i++) {
     $result = $db->getRows($sql, [$i]);
 
     if (!empty($result)) {
+
+        // Posiblemente, se pueda realizar de una mejor manera, pero funciona
+        // Insertamos el div container
+        if ($i == 1) {
+            echo '<div class="container_organigrama">';
+        }
+
         // Implementación de la clase Persona
         $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
         // Llenado de la plantilla con los datos de la base de datos
         echo fillTemplate($persona);
         // Liberación de memoria
         unset($persona);
+
         // Cuando se haya insertado el último registro, se inserta el js de bootstrap
         if ($i == 38) {
             echo file_get_contents('templates/bootstrap_js.html');
+            echo '</div>';
         }
+
     } else {
         $msj = "[ERROR query] " . date('d-m-Y H:i:s') . ": Not found register with id " . $i . "\n";
         error_log("$msj", 3, "error_log.txt");
     }
 }
-
 // close the html
 echo "</html>";
 
