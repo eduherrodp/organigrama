@@ -38,11 +38,14 @@ for ($i = 1; $i<=38; $i++) {
         echo fillTemplate($persona);
         // Liberación de memoria
         unset($persona);
-        $msj = "[OK query] " . date('d-m-Y H:i:s') . ": Found register with id " . $i . "\n";
+        // Cuando se haya insertado el último registro, se inserta el js de bootstrap
+        if ($i == 38) {
+            echo file_get_contents('templates/bootstrap_js.html');
+        }
     } else {
         $msj = "[ERROR query] " . date('d-m-Y H:i:s') . ": Not found register with id " . $i . "\n";
+        error_log("$msj", 3, "error_log.txt");
     }
-    error_log("$msj", 3, "error_log.txt");
 }
 
 // close the html
