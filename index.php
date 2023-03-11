@@ -37,9 +37,9 @@ for($i = 1; $i<=38; $i++) {
         echo fillTemplate($persona);
         // Liberación de memoria
         unset($persona);
-        error_log("Se encontró el registro con id " . $i . "\n", 3);
+        error_log("Se encontró el registro con id " . $i . "\n", 3, "error_log.txt");
     } else {
-        error_log("No se encontró el registro con id " . $i . "\n", 3);
+        error_log("No se encontró el registro con id " . $i . "\n", 3, "error_log.txt");
     }
 }
 
