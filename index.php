@@ -47,6 +47,7 @@ function fillTemplate(Persona $persona): string {
     $template = str_replace('(correo)', $persona->getCorreo(), $template);
     $template = str_replace('(telefono)', $persona->getTelefono(), $template);
     $template = str_replace('(cv)', $persona->getCv(), $template);
+    /** @var string $template */
     $template = str_replace('(foto)', $persona->getFoto(), $template);
     // Mostrar la plantilla
     return $template;
