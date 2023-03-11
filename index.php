@@ -8,10 +8,10 @@ use Persona;
 include 'php/Persona.php';
 require_once 'php/DBConnection.php';
 
-// Configure php log file
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 
 /**
  * Conexión a la base de datos
@@ -28,6 +28,7 @@ $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telef
 
 for($i = 1; $i<=38; $i++) {
     // Complete the query with the id
+    $result = $db->getRows($sql, [$i]);
 
     if (!empty($result)) {
         // Implementación de la clase Persona
@@ -36,10 +37,9 @@ for($i = 1; $i<=38; $i++) {
         echo fillTemplate($persona);
         // Liberación de memoria
         unset($persona);
-        // add register to php log showing dir and id
-        error_log( "Se encontró el registro con id " . $i . ", ");
+        error_log("Se encontró el registro con id " . $i . "\n", 3);
     } else {
-        error_log("No se encontró el registro con id " . $i . "\, ");
+        error_log("No se encontró el registro con id " . $i . "\n", 3);
     }
 }
 
