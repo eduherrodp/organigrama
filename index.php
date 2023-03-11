@@ -12,7 +12,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 /**
  * Conexión a la base de datos
  */
@@ -37,9 +36,10 @@ for($i = 1; $i<=38; $i++) {
         echo fillTemplate($persona);
         // Liberación de memoria
         unset($persona);
-        error_log("Se encontró el registro con id " . $i . "\n", 3, "error_log.txt");
+
+        error_log("[OK query]'  " . date('d-m-Y H:i:s') . ": Found register whit id " . $i, 3, ", error_log.txt");
     } else {
-        error_log("No se encontró el registro con id " . $i . "\n", 3, "error_log.txt");
+        error_log("[Failed query]'  " . date('d-m-Y H:i:s') . ": Found register whit id " . $i, 3, ", error_log.txt");
     }
 }
 
