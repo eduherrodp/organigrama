@@ -36,10 +36,10 @@ for($i = 1; $i<=38; $i++) {
         echo fillTemplate($persona);
         // Liberación de memoria
         unset($persona);
-        $msj = "[OK query]'  " . date('d-m-Y H:i:s') . ": Found register whit id " . $i . "\n";
+        $msj = "[OK query] " . date('d-m-Y H:i:s') . ": Found register with id " . $i . "\n";
         error_log("$msj", 3, "error_log.txt");
     } else {
-        $msj = "[ERROR query]'  " . date('d-m-Y H:i:s') . ": Not found register whit id " . $i . "\n";
+        $msj = "[ERROR query] " . date('d-m-Y H:i:s') . ": Not found register with id " . $i . "\n";
         error_log("$msj", 3, "error_log.txt");
     }
 }
