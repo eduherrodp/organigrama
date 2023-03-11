@@ -3,3 +3,11 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
+.div_contenedor {
+    width: 100%;
+    height: 100vh;
+    background: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
