@@ -38,6 +38,9 @@ for ($i = 1; $i<=38; $i++) {
 
     if (!empty($result)) {
         // Implementación de la clase Persona
+        if($result[0]['cargo_a_mostrar'] == null) {
+            $result[0]['cargo_a_mostrar'] = 'NULL';
+        }
         $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto'], $result[0]['cargo_a_mostrar']);
         // Llenado de la plantilla con los datos de la base de datos
         echo fillTemplate($persona);
