@@ -44,4 +44,7 @@ class Persona {
     public function getFoto(): string {
         return $this->foto;
     }
+    public function getTelefonoFormateado(): string {
+        return str_replace(['(', ')', ' '], '', preg_replace('/EXT.*/', '', $this->telefono));
+    }
 }

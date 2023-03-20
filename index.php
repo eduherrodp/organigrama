@@ -30,13 +30,6 @@ for ($i = 1; $i<=38; $i++) {
     $result = $db->getRows($sql, [$i]);
 
     if (!empty($result)) {
-
-        // Posiblemente, se pueda realizar de una mejor manera, pero funciona
-        // Insertamos el div container
-        if ($i == 1) {
-            echo '<div class="container_organigrama">';
-        }
-
         // Implementación de la clase Persona
         $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto']);
         // Llenado de la plantilla con los datos de la base de datos
@@ -69,14 +62,14 @@ function fillTemplate(Persona $persona): string {
     // Obtención de la plantilla
     $template = file_get_contents('templates/persona.html');
     // Reemplazo de los valores de la plantilla con los de la base de datos
-    $template = str_replace('(persona)', $persona->getFoto(), $template);
-    $template = str_replace('(nombre)', $persona->getNombre(), $template);
-    $template = str_replace('(cargo)', $persona->getCargo(), $template);
-    $template = str_replace('(correo)', $persona->getCorreo(), $template);
-    $template = str_replace('(telefono)', $persona->getTelefono(), $template);
-    $template = str_replace('(cv)', $persona->getCv(), $template);
+    $template = str_replace('{persona}', $persona->getFoto(), $template);
+    $template = str_replace('{nombre}', $persona->getNombre(), $template);
+    $template = str_replace('{cargo}', $persona->getCargo(), $template);
+    $template = str_replace('{correo}', $persona->getCorreo(), $template);
+    $template = str_replace('{telefono}', $persona->getTelefono(), $template);
+    $template = str_replace('{cv}', $persona->getCv(), $template);
     /** @var string $template */
-    $template = str_replace('(foto)', $persona->getFoto(), $template);
+    $template = str_replace('{foto}', $persona->getFoto(), $template);
     // Mostrar la plantilla
-    return $template;
+    return str_replace('{telefono_formateado}', $persona->getTelefonoFormateado(), $template);
 }
