@@ -7,9 +7,10 @@ class Persona {
     private string $telefono;
     private string $cv;
     private string $foto;
+    private string $cargo_a_mostrar;
 
     // Constructor para la asignación de valores a los atributos
-    public function __construct(string $id, string $nombre, string $cargo, string $correo, string $telefono, string $cv, string $foto)
+    public function __construct(string $id, string $nombre, string $cargo, string $correo, string $telefono, string $cv, string $foto, string $cargo_a_mostrar)
     {
         $this->id = $id;
         $this->nombre = $nombre;
@@ -18,6 +19,7 @@ class Persona {
         $this->telefono = $telefono;
         $this->cv = $cv;
         $this->foto = $foto;
+        $this->cargo_a_mostrar = $cargo_a_mostrar;
     }
     // Getters
     public function getId(): string
@@ -43,6 +45,9 @@ class Persona {
     }
     public function getFoto(): string {
         return $this->foto;
+    }
+    public function getCargoAMostrar(): string {
+        return $this->cargo_a_mostrar;
     }
     public function getTelefonoFormateado(): string {
         return str_replace(['(', ')', ' '], '', preg_replace('/EXT.*/', '', $this->telefono));
