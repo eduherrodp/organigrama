@@ -43,8 +43,6 @@ for ($i = 1; $i<=38; $i++) {
         error_log("$msj", 3, "error_log.txt");
     }
 }
-// Close the div container
-echo '</div>';
 
 // Insertamos el js de bootstrap
 echo file_get_contents('templates/bootstrap_js.html');
