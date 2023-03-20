@@ -18,8 +18,6 @@ error_reporting(E_ALL);
 
 $db = DBConnection::getInstance();
 
-/*Desde aquí se comenzará a iterar*/
-
 // Consultamos únicamente un registro por iteración para evitar el uso de memoria innecesario
 
 $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto FROM personas JOIN cargos ON personas.id_cargo = cargos.id JOIN correos ON personas.id_correo = correos.id JOIN telefonos ON personas.id_telefono = telefonos.id JOIN cv ON personas.id_cv = cv.id JOIN fotos ON personas.id_foto = fotos.id WHERE personas.id = ?;";
@@ -45,18 +43,17 @@ for ($i = 1; $i<=38; $i++) {
         echo fillTemplate($persona);
         // Liberación de memoria
         unset($persona);
-
-        // Cuando se haya insertado el último registro, se inserta el js de bootstrap
-        if ($i == 38) {
-            echo file_get_contents('templates/bootstrap_js.html');
-            echo '</div>';
-        }
-
     } else {
         $msj = "[ERROR query] " . date('d-m-Y H:i:s') . ": Not found register with id " . $i . "\n";
         error_log("$msj", 3, "error_log.txt");
     }
 }
+// Close the div container
+echo '</div>';
+
+// Insertamos el js de bootstrap
+echo file_get_contents('templates/bootstrap_js.html');
+
 // close the html
 echo "</html>";
 
