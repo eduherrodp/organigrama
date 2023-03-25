@@ -88,6 +88,6 @@ class DBConnection {
 
     // Impide la clonación, serialización y deserialización de la instancia respectivamente
     private function __clone(){}
-    private function __sleep(){}
-    private function __wakeup(){}
+    public function __sleep(){}
+    public function __wakeup(){}
 }
