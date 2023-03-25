@@ -19,3 +19,18 @@
     padding: 15% 0;
     text-align: center;
 }
+.div_nivel a.verDescripcion{
+    font-family: arial, verdana, tahoma, serif;
+    font-size: 11px;
+}
+
+.div_nivel:hover{
+    background-color: #23272b;
+}
+.div_nivel a.verDescripcion{
+    color: #212529;
+    cursor: pointer;
+}
+.div_nivel:hover a.verDescripcion{
+    color: #fff!important;
+}
