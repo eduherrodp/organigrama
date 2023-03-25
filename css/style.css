@@ -1,8 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+.div_nivel {
+    width: 92px;
+    height: 47px;
+    position: absolute;
+    background-color: #e2e6ea;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    transition: all 500ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .verDescripcion {
     width: 100%;
     padding: 15% 0;
