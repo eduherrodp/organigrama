@@ -57,6 +57,8 @@ for ($i = 1; $i<=1; $i++) {
 // Insertamos el js de bootstrap
 echo file_get_contents('templates/bootstrap_js.html');
 
+// close div container and body
+echo "</div></body>";
 // close the html
 echo "</html>";
 

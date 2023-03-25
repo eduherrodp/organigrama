@@ -10,7 +10,13 @@
     align-items: center;
     flex-direction: row;
 }
-
+.organigrama {
+    background-image: url(../img/organigrama.png);
+    height: 756px;
+    width: 1173px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 .verDescripcion {
     text-align: center;
 }
