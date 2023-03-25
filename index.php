@@ -62,6 +62,11 @@ echo "</div></body>";
 // close the html
 echo "</html>";
 
+function makeId($id, $cargoAMostrar): string {
+    $word = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(['á', 'é', 'í', 'ó', 'ú'], ['a', 'e', 'i', 'o', 'u'], preg_replace('/\s+/', '', $cargoAMostrar))));
+
+    return $word."_". $id;
+}
 
 /**
  * @param Persona $persona
@@ -82,5 +87,6 @@ function fillTemplate(Persona $persona): string {
     $template = str_replace('{foto}', $persona->getFoto(), $template);
     // Mostrar la plantilla
     $template = str_replace('{telefono_formateado}', $persona->getTelefonoFormateado(), $template);
+    $template = str_replace('{id}', makeId($persona->getId(), $persona->getCargoAMostrar()), $template);
     return str_replace('{cargo_a_mostrar}', $persona->getCargoAMostrar(), $template);
 }
