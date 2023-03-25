@@ -2,7 +2,7 @@
 <div class="div_nivel">
     <a id="open_" class="verDescripcion" data-id="#card_cargo">{cargo_a_mostrar}</a>
     <div class="dropdown-content-I">
-        <div id="card_cargo" class="card bg-light ficha d-block">
+        <div id="card_cargo" class="card bg-light ficha d-none">
             <div class="card-body">
                 <div class="avatar">
                     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" style="background-image:url({foto});" alt="" class="img-raised rounded-circle img-fluid">
@@ -28,4 +28,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    const enlaceCargo = document.getElementById("open_");
+    const tarjetaCargo = document.getElementById("card_cargo");
+
+    enlaceCargo.addEventListener("click", function() {
+        tarjetaCargo.classList.toggle("d-none");
+    });
+</script>
 </body>
