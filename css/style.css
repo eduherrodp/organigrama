@@ -3,3 +3,8 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
+.verDescripcion {
+    width: 100%;
+    padding: 15% 0;
+    text-align: center;
+}
