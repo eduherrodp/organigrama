@@ -63,7 +63,7 @@ echo "</div></body>";
 echo "</html>";
 
 function makeId($id, $cargoAMostrar): string {
-    $word = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(['á', 'é', 'í', 'ó', 'ú'], ['a', 'e', 'i', 'o', 'u'], preg_replace('/\s+/', '', $cargoAMostrar))));
+    $word = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '_', str_replace(['á', 'é', 'í', 'ó', 'ú'], ['a', 'e', 'i', 'o', 'u'], preg_replace('/\s+/', '', $cargoAMostrar))));
 
     return $word."_". $id;
 }
