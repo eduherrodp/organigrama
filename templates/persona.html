@@ -1,24 +1,28 @@
 <body>
 <div class="div_nivel">
-    <a id="open_" class="verDescripcion" data-id="#a_definir">{cargo_a_mostrar}</a>
+    <a id="open_" class="verDescripcion" data-id="#card_cargo">{cargo_a_mostrar}</a>
     <div class="dropdown-content-I">
-        <div class="card bg-light ficha">
+        <div id="card_cargo" class="card bg-light ficha d-block">
             <div class="card-body">
                 <div class="avatar">
                     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" style="background-image:url({foto});" alt="" class="img-raised rounded-circle img-fluid">
                 </div>
                 <h5 class="card-title">{nombre}</h5>
                 <h6 class="card-subtitle">{cargo}</h6>
-                <a href="mailto:{correo}" class="btn btn-just-icon btn-link" data-toggle="tooltip" title="{correo}">
+                <a href="mailto:{correo}" class="btn btn-just-icon btn-link " data-toggle="tooltip" title="" data-original-title="{correo}">
+                    <!--<i class="material-icons">mail</i>-->
                     <span>{correo}</span>
                 </a>
-                <a href="{telefono_formateado}" class="btn btn-just-icon btn-link" data-toggle="tooltip" title="{telefono}">
+                <a href="{telefono_formateado}" class="btn btn-just-icon btn-link" data-toggle="tooltip" title="" data-original-title="{telefono}">
+                    <!--<i class="material-icons">call</i>-->
                     <span>{telefono}</span>
                 </a>
-                <a href="{cv}" class="btn btn-just-icon btn-link" data-toggle="tooltip" title="Currículum" target="_blank">
+                <a href="{cv}" class="btn btn-just-icon btn-link" data-toggle="tooltip" title="" target="_blank" data-original-title="Currículum">
+                    <!--<i class="material-icons">face</i>-->
                     <span>{cv}</span>
                 </a>
-                <a href="#" class="btn btn-just-icon btn-link funciones" data-toggle="tooltip" title="Funciones">
+                <a href="#" class="btn btn-just-icon btn-link funciones" data-toggle="tooltip" title="" data-original-title="Funciones">
+                    <!--<i class="material-icons">assignment</i>-->
                 </a>
             </div>
         </div>
