@@ -32,7 +32,7 @@ LEFT JOIN cargos_a_mostrar ON personas.id_cargo_a_mostrar = cargos_a_mostrar.id 
 // Add head to the html
 echo file_get_contents('templates/head.html');
 
-for ($i = 1; $i<=1; $i++) {
+for ($i = 1; $i<=38; $i++) {
     // Complete the query with the id
     $result = $db->getRows($sql, [$i]);
 
