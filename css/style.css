@@ -4,33 +4,28 @@
     position: absolute;
     background-color: #e2e6ea;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-transition: all 500ms;
-    -moz-transition: all 500ms;
     transition: all 500ms;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
 }
 
 .verDescripcion {
-    width: 100%;
-    padding: 15% 0;
     text-align: center;
 }
-.div_nivel a.verDescripcion{
+
+.div_nivel a.verDescripcion {
     font-family: arial, verdana, tahoma, serif;
     font-size: 11px;
-}
-
-.div_nivel:hover{
-    background-color: #23272b;
-}
-.div_nivel a.verDescripcion{
     color: #212529;
     cursor: pointer;
 }
-.div_nivel:hover a.verDescripcion{
+
+.div_nivel:hover {
+    background-color: #23272b;
+}
+
+.div_nivel:hover a.verDescripcion {
     color: #fff!important;
 }
