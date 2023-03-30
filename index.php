@@ -88,5 +88,11 @@ function fillTemplate(Persona $persona): string {
     // Mostrar la plantilla
     $template = str_replace('{telefono_formateado}', $persona->getTelefonoFormateado(), $template);
     $template = str_replace('{id}', makeId($persona->getId(), $persona->getCargoAMostrar()), $template);
+    // Add top and left as style in the div
+    // Get the random number
+    $top = rand(0, 100);
+    $left = rand(0, 100);
+    $style = "top: {$top}%; left: {$left}%;";
+    $template = str_replace('{style}', $style, $template)
     return str_replace('{cargo_a_mostrar}', $persona->getCargoAMostrar(), $template);
 }
