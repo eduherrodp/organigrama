@@ -93,6 +93,6 @@ function fillTemplate(Persona $persona): string {
     $top = rand(0, 100);
     $left = rand(0, 100);
     $style = "top: {$top}%; left: {$left}%;";
-    $template = str_replace('{style}', $style, $template)
+    $template = str_replace('{style}', $style, $template);
     return str_replace('{cargo_a_mostrar}', $persona->getCargoAMostrar(), $template);
 }
