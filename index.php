@@ -1,25 +1,20 @@
 <?php
-//Implementación de la clase DBConnection.php
-
 namespace php;
 
 use Persona;
 
-include 'php/Persona.php';
+require_once 'php/Persona.php';
 require_once 'php/DBConnection.php';
 
+// Configuración de errores
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-/**
- * Conexión a la base de datos
- */
-
+// Instancia de la conexión a la base de datos
 $db = DBConnection::getInstance();
 
-// Consultamos únicamente un registro por iteración para evitar el uso de memoria innecesario
-
+// Consulta a la base de datos
 $sql = "SELECT personas.id, personas.nombre, cargos.cargo, correos.correo, telefonos.telefono, cv.cv, fotos.foto, cargos_a_mostrar.cargo AS cargo_a_mostrar
 FROM personas
 JOIN cargos ON personas.id_cargo = cargos.id
@@ -29,22 +24,33 @@ JOIN cv ON personas.id_cv = cv.id
 JOIN fotos ON personas.id_foto = fotos.id
 LEFT JOIN cargos_a_mostrar ON personas.id_cargo_a_mostrar = cargos_a_mostrar.id WHERE personas.id = ?;";
 
-// Add head to the html
-echo file_get_contents('templates/head.html');
+// Plantilla HTML
+$html = file_get_contents('templates/head.html');
 
+// Iteramos sobre los registros
 for ($i = 1; $i<=38; $i++) {
-    // Complete the query with the id
+
+    // Obtenemos los datos de la base de datos
     $result = $db->getRows($sql, [$i]);
 
     if (!empty($result)) {
-        // Implementación de la clase Persona
-        if($result[0]['cargo_a_mostrar'] == null) {
-            $result[0]['cargo_a_mostrar'] = 'NULL';
-        }
-        $persona = new Persona($result[0]['id'], $result[0]['nombre'], $result[0]['cargo'], $result[0]['correo'], $result[0]['telefono'], $result[0]['cv'], $result[0]['foto'], $result[0]['cargo_a_mostrar']);
-        // Llenado de la plantilla con los datos de la base de datos
-        echo fillTemplate($persona);
-        // Liberación de memoria
+
+        // Creamos la instancia de la clase Persona
+
+        $persona = new Persona(
+            $result[0]['id'],
+            $result[0]['nombre'],
+            $result[0]['cargo'],
+            $result[0]['correo'],
+            $result[0]['telefono'],
+            $result[0]['cv'],
+            $result[0]['foto'], $result[0]['cargo_a_mostrar'] ?? 'NULL'
+        );
+
+        // Rellenamos la plantilla HTML
+        $html .= fillTemplate($persona);
+
+        // Liberamos la memoria
         unset($persona);
 
         error_log("[INFO query] " . date('d-m-Y H:i:s') . ": Found register with id " . $i . "\n", 3, "error_log.txt");
@@ -54,45 +60,56 @@ for ($i = 1; $i<=38; $i++) {
     }
 }
 
-// Insertamos el js de bootstrap
-echo file_get_contents('templates/bootstrap_js.html');
+// Insertamos el JS de Bootstrap
+$html .= file_get_contents('templates/bootstrap_js.html');
 
-// close div container and body
-echo "</div></body>";
-// close the html
-echo "</html>";
+// Cerramos la etiqueta del div, body y HTML
+$html .= "</div></body></html>";
 
-function makeId($id, $cargoAMostrar): string {
-    $word = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '_', str_replace(['á', 'é', 'í', 'ó', 'ú'], ['a', 'e', 'i', 'o', 'u'], preg_replace('/\s+/', '', $cargoAMostrar))));
+// Mostramos el HTML
+echo $html;
 
+/**
+ * Devuelve el ID a partir del nombre del cargo y el ID de la persona.
+ *
+ * @param string $id
+ * @param string $cargoAMostrar
+ * @return string
+ */
+
+function makeId(string $id, string $cargoAMostrar): string {
+    $word = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '_', str_replace(['á', 'é', 'í', 'ó', 'ú', 'ñ'], ['a', 'e', 'i', 'o', 'u', 'n'], trim($cargoAMostrar))));
     return $word."_". $id;
 }
 
 /**
+ * Llena la plantilla HTML de una persona con los datos de la persona proporcionada
+ *
  * @param Persona $persona
  * @return string
  */
-
 function fillTemplate(Persona $persona): string {
     // Obtención de la plantilla
     $template = file_get_contents('templates/persona.html');
-    // Reemplazo de los valores de la plantilla con los de la base de datos
-    $template = str_replace('{persona}', $persona->getFoto(), $template);
-    $template = str_replace('{nombre}', $persona->getNombre(), $template);
-    $template = str_replace('{cargo}', $persona->getCargo(), $template);
-    $template = str_replace('{correo}', $persona->getCorreo(), $template);
-    $template = str_replace('{telefono}', $persona->getTelefono(), $template);
-    $template = str_replace('{cv}', $persona->getCv(), $template);
-    /** @var string $template */
-    $template = str_replace('{foto}', $persona->getFoto(), $template);
-    // Mostrar la plantilla
-    $template = str_replace('{telefono_formateado}', $persona->getTelefonoFormateado(), $template);
-    $template = str_replace('{id}', makeId($persona->getId(), $persona->getCargoAMostrar()), $template);
-    // Add top and left as style in the div
-    // Get the random number
-    $top = rand(0, 100);
-    $left = rand(0, 100);
-    $style = "top: {$top}px; left: {$left}px;";
+
+    // Placeholders de la plantilla
+    $placeholders = [
+        '{persona}' => $persona->getFoto(),
+        '{nombre}' => $persona->getNombre(),
+        '{cargo}' => $persona->getCargo(),
+        '{correo}' => $persona->getCorreo(),
+        '{telefono}' => $persona->getTelefono(),
+        '{cv}' => $persona->getCv(),
+        '{foto}' => $persona->getFoto(),
+        '{telefono_formateado}' => $persona->getTelefonoFormateado(),
+        '{id}' => makeId($persona->getId(), $persona->getCargoAMostrar())
+    ];
+    foreach ($placeholders as $placeholder => $value) {
+        $template = str_replace($placeholder, $value, $template);
+    }
+
+    $style = "top: " . rand(0, 100) . "px; left: " . rand(0, 100) . "px;";
     $template = str_replace('{style}', $style, $template);
+
     return str_replace('{cargo_a_mostrar}', $persona->getCargoAMostrar(), $template);
 }

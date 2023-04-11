@@ -1,5 +1,10 @@
 <?php
-class Persona {
+
+/**
+ * Representa una persona en el organigrama con la información básica.
+ */
+class Persona
+{
     private string $id;
     private string $nombre;
     private string $cargo;
@@ -9,9 +14,19 @@ class Persona {
     private string $foto;
     private string $cargo_a_mostrar;
 
-    // Constructor para la asignación de valores a los atributos
-    public function __construct(string $id, string $nombre, string $cargo, string $correo, string $telefono, string $cv, string $foto, string $cargo_a_mostrar)
-    {
+    /**
+     * Crea una nueva instancia de la clase Persona
+     *
+     * @param string $id
+     * @param string $nombre
+     * @param string $cargo
+     * @param string $correo
+     * @param string $telefono
+     * @param string $cv
+     * @param string $foto
+     * @param string $cargo_a_mostrar
+     */
+    public function __construct(string $id, string $nombre, string $cargo, string $correo, string $telefono, string $cv, string $foto, string $cargo_a_mostrar) {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->cargo = $cargo;
@@ -21,7 +36,6 @@ class Persona {
         $this->foto = $foto;
         $this->cargo_a_mostrar = $cargo_a_mostrar;
     }
-    // Getters
     public function getId(): string
     {
         return $this->id;
@@ -49,6 +63,10 @@ class Persona {
     public function getCargoAMostrar(): string {
         return $this->cargo_a_mostrar;
     }
+
+    /**
+     * @return string
+     */
     public function getTelefonoFormateado(): string {
         return str_replace(['(', ')', ' '], '', preg_replace('/EXT.*/', '', $this->telefono));
     }
