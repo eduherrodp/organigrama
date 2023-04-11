@@ -53,10 +53,10 @@ for ($i = 1; $i<=38; $i++) {
         // Liberamos la memoria
         unset($persona);
 
-        error_log("[INFO query] " . date('d-m-Y H:i:s') . ": Found register with id " . $i . "\n", 3, "error_log.txt");
+        // error_log("[INFO query] " . date('d-m-Y H:i:s') . ": Found register with id " . $i . "\n", 3, "error_log.txt");
     } else {
-        $msj = "[ERROR query] " . date('d-m-Y H:i:s') . ": Not found register with id " . $i . "\n";
-        error_log("$msj", 3, "error_log.txt");
+        // $msj = "[ERROR query] " . date('d-m-Y H:i:s') . ": Not found register with id " . $i . "\n";
+        // error_log("$msj", 3, "error_log.txt");
     }
 }
 
