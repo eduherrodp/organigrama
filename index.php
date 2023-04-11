@@ -7,9 +7,9 @@ require_once 'php/Persona.php';
 require_once 'php/DBConnection.php';
 
 // Configuración de errores
-ini_set('display_errors', 1);
+/*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 // Instancia de la conexión a la base de datos
 $db = DBConnection::getInstance();
