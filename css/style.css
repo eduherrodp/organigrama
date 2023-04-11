@@ -1,8 +1,7 @@
 .container {
     max-width: 1173px;
-    margin: 0 auto !important;
+    margin: 0 auto;
     position: relative;
-    width: 100%;
     border: 0 solid #000;
 }
 .div_nivel {
@@ -15,23 +14,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
 .organigrama {
-    background-image: url(../img/organigrama-32.png);
-    background-position-x: center;
-    background-position-y: top;
+    background: url(../img/organigrama-32.png) center top no-repeat;
     height: 100vh;
-    background-size: auto 100vh;
-    background-repeat: no-repeat;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1173px;
 }
 .verDescripcion {
     text-align: center;
 }
 
 .div_nivel a.verDescripcion {
-    font-family: arial, verdana, tahoma, serif;
-    font-size: 11px;
+    font: 11px/1 arial, verdana, tahoma, serif;
     color: #212529;
     cursor: pointer;
 }
