@@ -21,8 +21,7 @@
     background-image: url(../img/organigrama-32.png);
     background-position-x: center;
     background-position-y: top;
-    height: 756px;
-    width: 1173px;
+    height: 100vh;
     background-size: auto 100vh;
     background-repeat: no-repeat;
 }
