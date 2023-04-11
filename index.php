@@ -64,7 +64,7 @@ for ($i = 1; $i<=38; $i++) {
 $html .= file_get_contents('templates/bootstrap_js.html');
 
 // Cerramos la etiqueta del div, body y HTML
-$html .= "</div></body></html>";
+$html .= "</div></div></body></html>";
 
 // Mostramos el HTML
 echo $html;
