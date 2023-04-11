@@ -19,7 +19,8 @@
 }
 .organigrama {
     background-image: url(../img/organigrama-32.png);
-    background-position: center;
+    background-position-x: center;
+    background-position-y: top;
     height: 756px;
     width: 1173px;
     background-size: auto 100vh;
