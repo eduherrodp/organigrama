@@ -60,11 +60,14 @@ for ($i = 1; $i<=38; $i++) {
     }
 }
 
+// Cerramos el div del organigrama
+$html .= "</div>";
+
 // Insertamos el JS de Bootstrap
 $html .= file_get_contents('templates/bootstrap_js.html');
 
 // Cerramos la etiqueta del div, body y HTML
-$html .= "</div></div></body></html>";
+$html .= "</div></body></html>";
 
 // Mostramos el HTML
 echo $html;
