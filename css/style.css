@@ -12,10 +12,11 @@
     background-color: #e2e6ea;
     border-radius: 5px;
     transition: all 500ms;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    transform: translateX(-50%);
 }
 .organigrama {
     background-image: url(../img/organigrama-32.png);
