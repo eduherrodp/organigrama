@@ -108,8 +108,5 @@ function fillTemplate(Persona $persona): string {
         $template = str_replace($placeholder, $value, $template);
     }
 
-    $style = "top: " . rand(0, 300) . "px; left: " . rand(0, 300) . "px;";
-    $template = str_replace('{style}', $style, $template);
-
     return str_replace('{cargo_a_mostrar}', $persona->getCargoAMostrar(), $template);
 }
