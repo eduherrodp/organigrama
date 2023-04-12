@@ -4,6 +4,8 @@
     position: relative;
     width: 100%;
     border: 0 solid #000;
+    font-size: 100%;
+    background: linear-gradient(to left, #ff000030 50%, #00ff3473 50%);
 }
 .div_nivel {
     width: 150px;
@@ -28,6 +30,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 1024px;
+    opacity: .3;
 }
 .verDescripcion {
     text-align: center;
@@ -35,7 +38,7 @@
 
 .div_nivel a.verDescripcion {
     font-family: arial, verdana, tahoma, serif;
-    font-size: 11px;
+    font-size: .6em;
     color: #212529;
     cursor: pointer;
 }
@@ -102,13 +105,13 @@
     left: 50%;
 }
 .div_nivel:nth-child(13) {
-
+    display: none;
 }
 .div_nivel:nth-child(14) {
-
+    display: none;
 }
 .div_nivel:nth-child(15) {
-
+    display: none;
 }
 .div_nivel:nth-child(16) {
     top: 75%;
@@ -126,7 +129,7 @@
     width: 100px;
 }
 .div_nivel:nth-child(19) {
-
+    display: none;
 }
 .div_nivel:nth-child(20) {
     top: 413px;
@@ -162,7 +165,7 @@
     width: 96px;
 }
 .div_nivel:nth-child(27) {
-
+    display: none;
 }
 .div_nivel:nth-child(28) {
     top: 413px;
@@ -193,6 +196,7 @@
     left: 965px;
 }
 .div_nivel:nth-child(34) {
+    display: none;
 }
 .div_nivel:nth-child(35) {
     top: 525px;
